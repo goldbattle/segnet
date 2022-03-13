@@ -1,0 +1,9 @@
+
+libtorch/*
+!libtorch/.gitkeep
+
+output/*.txt
+cmake-build-debug
+build
+*.*~
+.idea
