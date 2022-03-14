@@ -45,9 +45,11 @@ To find the classification for a given pixel, the argmax of the classes response
 
 Right now there are 8908 images in the [files_trainable](https://github.com/commaai/comma10k/blob/master/files_trainable) with 976 for testing.
 It seems to perform ok after >20 epochs, but the fine detail seems to struggle.
-Training started at 4:53pm on March 13, 2022 and reached epoch 33 at 8:55pm (7 minutes per epoch).
+Training started at 4:53pm on March 13, 2022 and reached epoch 33 at 8:55pm (7 minutes per epoch) on a 1080Ti card.
 It would be interesting to perform evaluation only on "confident" network returns.
 
+
+Input picture (left), groundtruth (top right), and prediction (bottom right)
 ![](docs/example_pred.png)
 
 
