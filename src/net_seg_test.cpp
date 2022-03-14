@@ -164,8 +164,8 @@ int main(int argc, char *argv[]) {
     cv::waitKey(100);
 
     // Save to file for readme
-    // cv::imwrite("/home/patrick/github/libtorch_segnet/docs/example_pred.png", outimg3);
-    // cv::imwrite("/home/patrick/github/libtorch_segnet/docs/example_probs.png", outimg4);
+    // cv::imwrite("/home/patrick/github/segnet/docs/example_pred.png", outimg3);
+    // cv::imwrite("/home/patrick/github/segnet/docs/example_probs.png", outimg4);
     // std::exit(EXIT_FAILURE);
 
     batch_idx++;

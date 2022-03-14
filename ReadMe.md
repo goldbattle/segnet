@@ -15,7 +15,7 @@ To find the classification for a given pixel, the argmax of the classes response
   * Stable 1.3 Linux LibTorch C++
   * CUDA version 10.1
   * cxx11 ABI since we build with c++11
-* Install CUDA 10.1 - https://developer.nvidia.com/cuda-10.1-download-archive-base
+* Install CUDA 10.1 (match your libtorch version) - https://developer.nvidia.com/cuda-10.1-download-archive-base
 * Install cuDNN 7.5 (match 10.1 cuda version!) - https://developer.nvidia.com/cudnn
 * Install OpenCV - `sudo apt install libopencv-dev`
 * Install Boost 1.68 - `sudo apt install libboost-dev`
@@ -44,10 +44,13 @@ To find the classification for a given pixel, the argmax of the classes response
 ## Some Results
 
 Right now there are 8908 images in the [files_trainable](https://github.com/commaai/comma10k/blob/master/files_trainable) with 976 for testing.
-It seems to perform ok after >10 epochs.
+It seems to perform ok after >20 epochs, but the fine detail seems to struggle.
+Training started at 4:53pm on March 13, 2022 and reached epoch 33 at 8:55pm (7 minutes per epoch).
 It would be interesting to perform evaluation only on "confident" network returns.
 
 ![](docs/example_pred.png)
 
+
+Confidence in order for: Road, Lane markings, Undrivable, Movable, My car.
 ![](docs/example_probs.png)
 
