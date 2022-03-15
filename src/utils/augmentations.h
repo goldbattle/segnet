@@ -135,9 +135,9 @@ inline void random_camera_model(cv::Mat &cv_rgb, cv::Mat &cv_label) {
   cam.at<float>(2, 1) = 0.0f;
   cam.at<float>(2, 2) = 1.0f;
   cv::Mat dist(5, 1, cv::DataType<float>::type);
-  dist.at<float>(0, 0) = 0.1 * unif_pn(rng);
-  dist.at<float>(1, 0) = 0.05 * unif_pn(rng);
-  dist.at<float>(2, 0) = 1e-3 * unif_pn(rng);
+  dist.at<float>(0, 0) = 0.20 * unif_pn(rng);
+  dist.at<float>(1, 0) = 0.10 * unif_pn(rng);
+  dist.at<float>(2, 0) = 1e-2 * unif_pn(rng);
   dist.at<float>(3, 0) = 1e-4 * unif_pn(rng);
   dist.at<float>(4, 0) = 1e-5 * unif_pn(rng);
 

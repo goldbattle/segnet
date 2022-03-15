@@ -60,7 +60,7 @@ Comma10kDataset::Comma10kDataset(std::string pathroot, ModeDataSplit mode, bool 
 
   // Random order (ensure same random shuffle on both)
   // https://stackoverflow.com/a/16968342
-  if (randomize) {
+  if (mode == Comma10kDataset::ModeDataSplit::kTrain && randomize) {
     unsigned int seed = std::time(NULL);
     std::srand(seed);
     std::random_shuffle(paths_rgb.begin(), paths_rgb.end());

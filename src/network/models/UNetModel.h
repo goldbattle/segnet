@@ -91,6 +91,7 @@ struct UNetModelImpl : torch::nn::Module {
     // First do our starting two convolutions
     x1 = inconv1(input);
     x1 = inconv2(x1);
+    x1 = torch::dropout(x1, 0.25, this->is_training());
 
     // Downscale to the bottleneck
     x2 = down1(x1);

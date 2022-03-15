@@ -71,7 +71,9 @@ int main() {
 
   // Finally convert it to a unique pointer dataloader
   auto dataset_mapped = dataset.map(torch::data::transforms::Stack<>());
-  auto data_loader = torch::data::make_data_loader(std::move(dataset_mapped), torch::data::DataLoaderOptions().batch_size(5).workers(30));
+  auto sampler = torch::data::samplers::RandomSampler(dataset.size().value());
+  auto options = torch::data::DataLoaderOptions().enforce_ordering(false).batch_size(5).workers(30);
+  auto data_loader = torch::data::make_data_loader(std::move(dataset_mapped), sampler, options);
 
   // Create the optimizer
   // torch::optim::SGD optimizer(model->parameters(), torch::optim::SGDOptions(0.01).momentum(0.5));
@@ -111,7 +113,7 @@ int main() {
       optimizer.step();
 
       // Print our the loss every once in a while
-      if (batch_idx % 10 == 0) {
+      if (batch_idx % 100 == 0) {
 
         // Debug printout
         size_t items_curr = batch_idx * batch.data.size(0);

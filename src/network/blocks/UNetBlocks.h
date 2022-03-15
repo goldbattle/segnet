@@ -63,7 +63,10 @@ struct UNetDownwardsImpl : torch::nn::Module {
   }
 
   // Forward propagation
-  torch::Tensor forward(torch::Tensor input) { return conv2(conv1(torch::max_pool2d(input, 2))); }
+  torch::Tensor forward(torch::Tensor input) {
+    auto output = conv2(conv1(torch::max_pool2d(input, 2)));
+    return torch::dropout(output, 0.5, this->is_training());
+  }
 
   // Parts of the network
   // NOTE: for submodules, we call the "empty holder" constructor
@@ -96,7 +99,8 @@ struct UNetUpwardsImpl : torch::nn::Module {
     input = torch::cat({input, bridge}, 1);
 
     // Finally do our convolutions and return
-    return conv2(conv1(input));
+    auto output = torch::dropout(input, 0.5, this->is_training());
+    return conv2(conv1(output));
   }
 
   // Parts of the network
