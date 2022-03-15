@@ -34,6 +34,7 @@ To find the classification for a given pixel, the argmax of the classes response
 
 ## Future Work / TODOs
 
+- Use the larger "trainable" image set [link](https://docs.google.com/spreadsheets/d/1ZKqku0cAyWY0ELY5L2qsKYYYA2AMGbgAn4p53uoT3v8/edit#gid=0)
 - Allow setting of max return prop
 - See if dropout in network helps
 - Compare against baseline: https://github.com/commaai/comma10k/issues/2000
@@ -47,7 +48,7 @@ Right now there are 8908 images in the [files_trainable](https://github.com/comm
 It seems to perform ok after >20 epochs, but the fine detail seems to struggle.
 Training started at 4:53pm on March 13, 2022 and reached epoch 33 at 8:55pm (7 minutes per epoch) on a 1080Ti card.
 It would be interesting to perform evaluation only on "confident" network returns.
-
+Average loss of 0.0694 on test and 0.0549 on training data after 100 epochs
 
 Input picture (left), groundtruth (top right), and prediction (bottom right)
 ![](docs/example_pred.png)
